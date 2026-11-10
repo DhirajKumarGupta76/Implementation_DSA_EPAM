@@ -250,6 +250,521 @@ void print12(int n) {
         cout << endl;
     }
 }
+// --------------------------------------------------
+// PATTERN 11: Binary Number Triangle
+//
+// Output for n = 5:
+//
+// 1
+// 0 1
+// 1 0 1
+// 0 1 0 1
+// 1 0 1 0 1
+//
+// Logic:
+// If i + j is even, print 1.
+// Otherwise, print 0.
+// --------------------------------------------------
+
+void print11(int n) {
+    for (int i = 1; i <= n; i++) {
+
+        for (int j = 1; j <= i; j++) {
+
+            if ((i + j) % 2 == 0) {
+                cout << "1 ";
+            }
+            else {
+                cout << "0 ";
+            }
+
+        }
+
+        cout << endl;
+    }
+}
+
+
+// --------------------------------------------------
+// PATTERN 12: Palindromic Number Triangle
+//
+// Output for n = 4:
+//
+// 1      1
+// 12    21
+// 123  321
+// 12344321
+//
+// Logic:
+// First loop prints increasing numbers.
+// Second loop prints decreasing numbers.
+// --------------------------------------------------
+
+void print12(int n) {
+
+    for (int i = 1; i <= n; i++) {
+
+        // Print increasing numbers
+        for (int j = 1; j <= i; j++) {
+            cout << j;
+        }
+
+        // Print spaces in the middle
+        for (int s = 1; s <= 2 * (n - i); s++) {
+            cout << " ";
+        }
+
+        // Print decreasing numbers
+        for (int j = i; j >= 1; j--) {
+            cout << j;
+        }
+
+        cout << endl;
+    }
+}
+
+
+// --------------------------------------------------
+// PATTERN 13: Floyd's Triangle
+//
+// Output for n = 5:
+//
+// 1
+// 2 3
+// 4 5 6
+// 7 8 9 10
+// 11 12 13 14 15
+//
+// Logic:
+// value increases continuously.
+// It does not reset after each row.
+// --------------------------------------------------
+
+void print13(int n) {
+
+    int value = 1;
+
+    for (int i = 1; i <= n; i++) {
+
+        for (int j = 1; j <= i; j++) {
+
+            cout << value << " ";
+
+            value++;
+        }
+
+        cout << endl;
+    }
+}
+
+
+// --------------------------------------------------
+// PATTERN 14: Increasing Alphabet Triangle
+//
+// Output for n = 5:
+//
+// A
+// AB
+// ABC
+// ABCD
+// ABCDE
+//
+// Logic:
+// Outer loop controls rows.
+// Inner loop prints characters from A.
+// --------------------------------------------------
+
+void print14(int n) {
+
+    for (int i = 1; i <= n; i++) {
+
+        for (int j = 0; j < i; j++) {
+
+            char ch = 'A' + j;
+
+            cout << ch;
+        }
+
+        cout << endl;
+    }
+}
+
+
+// --------------------------------------------------
+// PATTERN 15: Inverted Alphabet Triangle
+//
+// Output for n = 5:
+//
+// ABCDE
+// ABCD
+// ABC
+// AB
+// A
+//
+// Logic:
+// Outer loop starts from n and decreases.
+// Inner loop prints characters from A.
+// --------------------------------------------------
+
+void print15(int n) {
+
+    for (int i = n; i >= 1; i--) {
+
+        for (int j = 0; j < i; j++) {
+
+            char ch = 'A' + j;
+
+            cout << ch;
+        }
+
+        cout << endl;
+    }
+}
+
+
+/*
+    *
+   * *
+  *   *
+ *     *
+*       *
+ *     *
+  *   *
+   * *
+    *
+*/
+void print16(int n) {
+
+    // Upper half of diamond
+    for (int i = 1; i <= n; i++) {
+
+        // Leading spaces
+        for (int s = 1; s <= n - i; s++) {
+            cout << " ";
+        }
+
+        // Print boundary stars
+        for (int j = 1; j <= 2 * i - 1; j++) {
+
+            if (j == 1 || j == 2 * i - 1) {
+                cout << "*";
+            }
+            else {
+                cout << " ";
+            }
+        }
+
+        cout << endl;
+    }
+
+    // Lower half of diamond
+    for (int i = n - 1; i >= 1; i--) {
+
+        // Leading spaces
+        for (int s = 1; s <= n - i; s++) {
+            cout << " ";
+        }
+
+        // Print boundary stars
+        for (int j = 1; j <= 2 * i - 1; j++) {
+
+            if (j == 1 || j == 2 * i - 1) {
+                cout << "*";
+            }
+            else {
+                cout << " ";
+            }
+        }
+
+        cout << endl;
+    }
+}
+
+// ==================================================
+// PATTERN 17: HOLLOW BUTTERFLY
+//
+// Output for n = 4:
+//
+// *      *
+// **    **
+// * *  * *
+// *  **  *
+// *  **  *
+// * *  * *
+// **    **
+// *      *
+// ==================================================
+
+void print17(int n) {
+
+    // Upper half
+    for (int i = 1; i <= n; i++) {
+
+        // Left wing
+        for (int j = 1; j <= i; j++) {
+            if (j == 1 || j == i)
+                cout << "*";
+            else
+                cout << " ";
+        }
+
+        // Middle spaces
+        for (int s = 1; s <= 2 * (n - i); s++) {
+            cout << " ";
+        }
+
+        // Right wing
+        for (int j = 1; j <= i; j++) {
+            if (j == 1 || j == i)
+                cout << "*";
+            else
+                cout << " ";
+        }
+
+        cout << endl;
+    }
+
+    // Lower half
+    for (int i = n; i >= 1; i--) {
+
+        for (int j = 1; j <= i; j++) {
+            if (j == 1 || j == i)
+                cout << "*";
+            else
+                cout << " ";
+        }
+
+        for (int s = 1; s <= 2 * (n - i); s++) {
+            cout << " ";
+        }
+
+        for (int j = 1; j <= i; j++) {
+            if (j == 1 || j == i)
+                cout << "*";
+            else
+                cout << " ";
+        }
+
+        cout << endl;
+    }
+}
+
+
+// ==================================================
+// PATTERN 18: NUMBER DIAMOND
+//
+// Output for n = 5:
+//
+//     1
+//    121
+//   12321
+//  1234321
+// 123454321
+//  1234321
+//   12321
+//    121
+//     1
+// ==================================================
+
+void print18(int n) {
+
+    // Upper half
+    for (int i = 1; i <= n; i++) {
+
+        // Leading spaces
+        for (int s = 1; s <= n - i; s++) {
+            cout << " ";
+        }
+
+        // Increasing numbers
+        for (int j = 1; j <= i; j++) {
+            cout << j;
+        }
+
+        // Decreasing numbers
+        for (int j = i - 1; j >= 1; j--) {
+            cout << j;
+        }
+
+        cout << endl;
+    }
+
+    // Lower half
+    for (int i = n - 1; i >= 1; i--) {
+
+        for (int s = 1; s <= n - i; s++) {
+            cout << " ";
+        }
+
+        for (int j = 1; j <= i; j++) {
+            cout << j;
+        }
+
+        for (int j = i - 1; j >= 1; j--) {
+            cout << j;
+        }
+
+        cout << endl;
+    }
+}
+
+
+// ==================================================
+// PATTERN 19: HOURGLASS
+//
+// Output for n = 5:
+//
+// *********
+//  *******
+//   *****
+//    ***
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+// ==================================================
+
+void print19(int n) {
+
+    // Upper inverted pyramid
+    for (int i = n; i >= 1; i--) {
+
+        for (int s = 1; s <= n - i; s++) {
+            cout << " ";
+        }
+
+        for (int j = 1; j <= 2 * i - 1; j++) {
+            cout << "*";
+        }
+
+        cout << endl;
+    }
+
+    // Lower pyramid
+    // Start from 2 to avoid repeating the middle star
+    for (int i = 2; i <= n; i++) {
+
+        for (int s = 1; s <= n - i; s++) {
+            cout << " ";
+        }
+
+        for (int j = 1; j <= 2 * i - 1; j++) {
+            cout << "*";
+        }
+
+        cout << endl;
+    }
+}
+
+
+// ==================================================
+// PATTERN 20: CONCENTRIC SQUARE NUMBER PATTERN
+//
+// Output for n = 4:
+//
+// 4444444
+// 4333334
+// 4322234
+// 4321234
+// 4322234
+// 4333334
+// 4444444
+//
+// Logic:
+// Outer boundary contains n.
+// Numbers decrease toward the centre.
+// ==================================================
+
+void print20(int n) {
+
+    int size = 2 * n - 1;
+
+    for (int i = 0; i < size; i++) {
+
+        for (int j = 0; j < size; j++) {
+
+            int layer = min(
+                min(i, j),
+                min(size - 1 - i, size - 1 - j)
+            );
+
+            cout << n - layer;
+        }
+
+        cout << endl;
+    }
+}
+
+
+// ==================================================
+// PATTERN 21: SPIRAL MATRIX
+//
+// Output for n = 5:
+//
+//  1  2  3  4  5
+// 16 17 18 19  6
+// 15 24 25 20  7
+// 14 23 22 21  8
+// 13 12 11 10  9
+//
+// Logic:
+// Fill top, right, bottom, left boundaries.
+// Move boundaries inward after every round.
+// ==================================================
+
+// void print21(int n) {
+
+//     //vector<vector<int>> matrix(n, vector<int>(n, 0));
+
+//     int top = 0;
+//     int bottom = n - 1;
+//     int left = 0;
+//     int right = n - 1;
+
+//     int value = 1;
+
+//     while (top <= bottom && left <= right) {
+
+//         // Left to right
+//         for (int j = left; j <= right; j++) {
+//             matrix[top][j] = value++;
+//         }
+//         top++;
+
+//         // Top to bottom
+//         for (int i = top; i <= bottom; i++) {
+//             matrix[i][right] = value++;
+//         }
+//         right--;
+
+//         // Right to left
+//         if (top <= bottom) {
+//             for (int j = right; j >= left; j--) {
+//                 matrix[bottom][j] = value++;
+//             }
+//             bottom--;
+//         }
+
+//         // Bottom to top
+//         if (left <= right) {
+//             for (int i = bottom; i >= top; i--) {
+//                 matrix[i][left] = value++;
+//             }
+//             left++;
+//         }
+//     }
+
+//     // Print matrix
+//     for (int i = 0; i < n; i++) {
+
+//         for (int j = 0; j < n; j++) {
+//             cout << matrix[i][j] << "\t";
+//         }
+
+//         cout << endl;
+//     }
+// }
 
 // ------------------------------------------------------------
 // MAIN FUNCTION
